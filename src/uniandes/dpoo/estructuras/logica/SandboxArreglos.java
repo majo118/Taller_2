@@ -336,7 +336,7 @@ public class SandboxArreglos
      */
     public void organizarEnteros( )
     {
-    	Arrays.sort(arregloEnteros);
+//    	Arrays.sort(arregloEnteros);
     }
 
     /**
@@ -491,7 +491,7 @@ public class SandboxArreglos
     public int contarEnterosRepetidos( )
     {
     	
-    	Arrays.sort(arregloEnteros);
+//    	Arrays.sort(arregloEnteros);
     	int numero = -1;
     	int cant = 0;
     	int j = 0;
@@ -562,7 +562,7 @@ public class SandboxArreglos
         	if (arregloEnteros[i] != otroArreglo[i]) 
         	{
         		System.out.println("no entra en el if");
-        		rta=false;	
+        		return false;	
         	}
         }
     	return rta;
@@ -575,8 +575,6 @@ public class SandboxArreglos
      */
     public boolean mismosEnteros( int[] otroArreglo )
     {
-    	Arrays.sort(arregloEnteros);
-    	Arrays.sort(otroArreglo);
     	
     	int len1 = arregloEnteros.length;
         int len2 = otroArreglo.length;
@@ -585,16 +583,37 @@ public class SandboxArreglos
         {
         	return false;
         }
+        boolean rta = true;
         
         for (int i=0; i<arregloEnteros.length; i++)
         {
-        	if(arregloEnteros[i] != otroArreglo[i]) 
+        	if (arregloEnteros[i] == otroArreglo[i])
         	{
-        		return false;	
+        		rta = true;
+        	}
+        	
+        	else
+        	{
+	        	boolean p = false;
+	        	for (int j=0; j<otroArreglo.length; j++)
+		        	
+	        		if(arregloEnteros[i] == otroArreglo[j]) 
+		        	{
+	        			rta = true;	
+		        	}
+	        		if (p == true)
+	        		{
+	        			rta = true;
+	        		}
+	        		else
+	        		{
+	        			rta = false;
+	        		} 
+        	
         	}
         }
     	
-    	return true;
+    	return rta;
     }
 
     /**
