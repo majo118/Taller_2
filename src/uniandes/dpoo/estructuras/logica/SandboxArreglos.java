@@ -336,7 +336,16 @@ public class SandboxArreglos
      */
     public void organizarEnteros( )
     {
-//    	Arrays.sort(arregloEnteros);
+    	int[] nuevaLista= new int[arregloEnteros.length];
+        
+        for(int i=0;i < arregloEnteros.length; i++)
+        {
+        	nuevaLista[i] = arregloEnteros[i];
+        }
+        
+        Arrays.sort(nuevaLista);
+        
+        arregloEnteros = nuevaLista;
     }
 
     /**
@@ -410,9 +419,8 @@ public class SandboxArreglos
     			rep ++;
     		}
     	}
+    	
     	int[] nuevaLista = new int[rep];
-//    	System.out.println(rep);
-//    	System.out.println(valor);
     	
     	int pos = 0;
     	if (rep != 0)
@@ -420,16 +428,19 @@ public class SandboxArreglos
     		for ( int i=0; i < len; i++)
     		{
     			
+    			System.out.println(arregloEnteros[i]);
+    			
     			if (arregloEnteros[i] == valor)
     			{
+    				System.out.println("c");
+    				System.out.println(i);
     				nuevaLista[pos] = i;
     				pos++;
     			}
     		}
     	}
     	arregloEnteros= nuevaLista;
-    	System.out.println(arregloEnteros[0]);
-    	//Sort en algun lado, ya no funciona vacio
+    	//No funciona en un caso
     	return nuevaLista;
     }
 
@@ -481,7 +492,25 @@ public class SandboxArreglos
      */
     public HashMap<Integer, Integer> calcularHistograma( )
     {
-        return null;
+        
+    	HashMap<Integer, Integer> mapa = new HashMap <>();
+    	for (int i=0; i < arregloEnteros.length; i++)
+    	{
+    		boolean estaK = mapa.containsKey(arregloEnteros[i]);
+    		if (estaK == false)
+    		{
+    			int cont = 0;
+    			for (int j=0; j < arregloEnteros.length; j++)
+    			{
+    				if (arregloEnteros[i] == arregloEnteros[j])
+    				{
+    					cont++;
+    				}
+    			mapa.put(arregloEnteros[i], cont);
+    			}
+    		}
+    	}
+    	return mapa;
     }
 
     /**
@@ -491,26 +520,34 @@ public class SandboxArreglos
     public int contarEnterosRepetidos( )
     {
     	
-//    	Arrays.sort(arregloEnteros);
+    	
+    	int[] nuevaLista= new int[arregloEnteros.length];
+        
+        for(int i=0;i < arregloEnteros.length; i++)
+        {
+        	nuevaLista[i] = arregloEnteros[i];
+        }
+        
+        Arrays.sort(nuevaLista);
     	int numero = -1;
     	int cant = 0;
     	int j = 0;
     	
-    	for (int i=0; i<arregloEnteros.length; i++)
+    	for (int i=0; i<nuevaLista.length; i++)
     	{
     		if (numero == -1)
     		{
-    			numero = arregloEnteros[i];
+    			numero = nuevaLista[i];
     			j = 1;
     		}
     		
     		else
     		{
-    			if (numero == arregloEnteros[i])
+    			if (numero == nuevaLista[i])
     			{
     				j++;
     				
-    				if (i+1 == arregloEnteros.length)
+    				if (i+1 == nuevaLista.length)
     				{
     					if (j > 1)
         				{
@@ -526,7 +563,7 @@ public class SandboxArreglos
     					cant++;
     				}
     				
-    				numero = arregloEnteros[i];
+    				numero = nuevaLista[i];
     				j = 1;
     			}
     		}
@@ -543,8 +580,6 @@ public class SandboxArreglos
      */
     public boolean compararArregloEnteros( int[] otroArreglo )
     {
-//    	Arrays.sort(arregloEnteros);
-//    	Arrays.sort(otroArreglo);
     	
     	int len1 = arregloEnteros.length;
         int len2 = otroArreglo.length;
@@ -556,12 +591,8 @@ public class SandboxArreglos
         boolean rta=true;
         for (int i=0; i<arregloEnteros.length &&rta==true; i++)
         {
-        	System.out.println(arregloEnteros[i]);
-        	System.out.println(otroArreglo[i]);
-        	System.out.println("a" + i);
         	if (arregloEnteros[i] != otroArreglo[i]) 
         	{
-        		System.out.println("no entra en el if");
         		return false;	
         	}
         }
