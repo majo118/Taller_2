@@ -426,21 +426,16 @@ public class SandboxArreglos
     	if (rep != 0)
     	{
     		for ( int i=0; i < len; i++)
-    		{
-    			
-    			System.out.println(arregloEnteros[i]);
-    			
+    		{    			
     			if (arregloEnteros[i] == valor)
     			{
-    				System.out.println("c");
-    				System.out.println(i);
     				nuevaLista[pos] = i;
     				pos++;
     			}
     		}
     	}
     	arregloEnteros= nuevaLista;
-    	//No funciona en un caso
+    	//No funciona en una prueba
     	return nuevaLista;
     }
 
