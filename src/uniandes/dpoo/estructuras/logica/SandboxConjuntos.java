@@ -207,7 +207,6 @@ public class SandboxConjuntos
     	{
     		arbolCadenas.add(letra.toString());
     	}
-//    	Volver a revisar al terminar
     }
 
     /**
