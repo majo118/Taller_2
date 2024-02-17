@@ -197,13 +197,9 @@ public class SandboxMapas
     	
     	for (int i = cadena.length() - 1; i >= 0; i--)
     	{
-//    		System.out.println(i);
     		cadenaNueva=  cadenaNueva + cadena.charAt(i);
     	}
-//    	System.out.println("a");
-    	mapaCadenas.put(cadenaNueva, cadena);
-//    	System.out.println("b");
-    	
+    	mapaCadenas.put(cadenaNueva, cadena);	
     }
 
     /**

@@ -412,6 +412,7 @@ public class SandboxArreglos
         
     	int len =  arregloEnteros.length;
     	int rep = 0;
+    	int pos = 0;
     	for( int i=0; i < len; i++)
     	{
     		if (arregloEnteros[i] == valor)
@@ -422,20 +423,18 @@ public class SandboxArreglos
     	
     	int[] nuevaLista = new int[rep];
     	
-    	int pos = 0;
-    	if (rep != 0)
-    	{
+	    if (rep != 0)
+	    {
     		for ( int i=0; i < len; i++)
-    		{    			
-    			if (arregloEnteros[i] == valor)
-    			{
-    				nuevaLista[pos] = i;
-    				pos++;
-    			}
-    		}
-    	}
-    	arregloEnteros= nuevaLista;
-    	//No funciona en una prueba
+	    	{    			
+	    		if (arregloEnteros[i] == valor)
+	   			{
+	   				nuevaLista[pos] = i;
+	   				pos++;
+	   			}
+	    	}
+	    }
+    	
     	return nuevaLista;
     }
 
