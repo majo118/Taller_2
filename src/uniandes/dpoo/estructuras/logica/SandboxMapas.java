@@ -48,13 +48,11 @@ public class SandboxMapas
     	
     	for (String elemento : valores)
     	{
-    		lista.add(elemento.toLowerCase());
+    		lista.add(elemento);
     	}
     	lista.sort(null);
     	
     	return lista;
-
-
     }
 
     /**
@@ -266,14 +264,16 @@ public class SandboxMapas
      */
     public void volverMayusculas( )
     {
-//    	Collection<String> keys = mapaCadenas.keySet();
-//		for (String letra : keys)
-//		{
-//			String val = mapaCadenas.get(letra);
-//			String key = letra.toUpperCase();
-//			mapaCadenas.remove(letra);
-//			mapaCadenas.put(key, val);
-//		}
+    	Collection<String> keys = mapaCadenas.keySet();
+    	Map<String, String> mapa = new HashMap<String, String>( );
+		for (String letra : keys)
+		{
+			String val = mapaCadenas.get(letra);
+			String key = letra.toUpperCase();
+			mapa.put(key, (val.toUpperCase()));
+		}
+		mapaCadenas.clear();
+		mapaCadenas= mapa;
     }
 
     /**
@@ -283,7 +283,16 @@ public class SandboxMapas
      */
     public boolean compararValores( String[] otroArreglo )
     {
-        return false;
+    	boolean rta = true;
+    	for (int i=0; i<otroArreglo.length; i++)
+		{
+    		boolean esta = mapaCadenas.containsValue(otroArreglo[i]);
+    		if (esta == false)
+    		{
+    			rta = false;
+    		}
+		}
+    	return rta;
     }
 
 }
